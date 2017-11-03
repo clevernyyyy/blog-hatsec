@@ -1,0 +1,14 @@
+siteTitle = "Blog by HatSec"
+siteDescr = "Wearing all the hats for security."
+siteAuthor = "Adam Schaal"
+
+siteTelegramUrl = "#nope"
+siteTwitterUrl = "https://twitter.com/adamschaal"
+siteGithubUrl = "https://github.com/clevernyyyy"
+siteEmailUrl = "adam@scha.al"
+siteRssUrl = "#"
+siteVkUrl = "#nope"
+
+googleAnalyticsId = ""
+
+linkPrefix = "/"

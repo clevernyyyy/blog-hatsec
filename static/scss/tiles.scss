@@ -1,0 +1,324 @@
+@import './colors';
+
+$tile-size-sm: 100px;
+$tile-margin: 5px;
+$tile-size-md-lg: ($tile-margin * 2) + ($tile-size-sm * 2);
+$duration: .3s;
+
+/* transition mixin */
+@mixin transition($transition...) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
+
+/* category specific coloring */
+.hackme {
+	background: $light-blue;
+	color: #fff;
+}
+
+.pentesterlab {
+  background: $red;
+  color: #fff;
+}
+
+.ctf {
+	background: $orange;
+	color: #fff;
+}
+
+
+/* tile specific css */
+.tiles {
+  font-family: Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+  font-size: 13px;
+
+  .tile {
+    position: relative;
+    cursor: pointer;
+    margin: $tile-margin;
+    padding: 5px 15px;
+    float: left;
+    overflow: hidden;
+    transition: all .6s ease-in-out, background 1ms;
+    text-decoration: none;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+
+    &:hover {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    &.lg-tile {
+      height: $tile-size-md-lg;
+      width: $tile-size-md-lg;
+      .tile-caption {
+        top: $tile-size-md-lg - 39px;
+      }
+    }
+
+    &.sm-tile {
+      height: $tile-size-sm;
+      width: $tile-size-sm;
+      .tile-caption {
+        top: $tile-size-sm - 39px;
+      }
+    }
+
+    &.md-tile {
+      height: $tile-size-sm;
+      width: $tile-size-md-lg;
+      .tile-caption {
+        top: $tile-size-sm - 39px;
+      }
+    }
+
+    .tile-header {
+      @include transition(ease-in-out $duration)
+      text-overflow: ellipsis;
+      overflow: hidden;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+
+      &:hover {
+        text-decoration: none;
+        color: #fff;
+      }
+    }
+
+    .tile-caption {
+      position: absolute;
+      left: 0;
+      padding: 0 10px 5px 10px;
+      color: #fff;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0, .4);
+      @include transition(ease-in-out $duration)
+
+      header {
+        height: 40px;
+        line-height: 40px;
+        border-bottom: 1px solid #fff;
+        font-size: 12px;
+        font-weight: 100;
+      }
+
+      .tile-arrow-up {
+        float: right;
+        line-height: 40px;
+        color: rgba(255,255,255, .8);
+        @include transition(ease-in-out $duration)
+        font-size: 11px;
+      }
+
+      .tile-preview {
+        font-size: 10px;
+      }
+
+      .tile-picture {
+        float: right;
+        margin-top: 9px;
+        position: relative;
+      }
+
+      .tool-wrapper {
+        text-transform: capitalize;
+        color: #fff;
+        cursor: help;
+        font-size: 20px;
+        /*-webkit-font-smoothing: antialiased;*/
+      }
+
+      .tool-wrapper .tooltip {
+        /*background: #1496bb;*/
+        top: 0;
+        color: #fff;
+        display: block;
+        margin-top: 5px;
+        right: 40px;
+        padding: 5px 8px;
+        pointer-events: none;
+        border-radius: 5px;
+        -webkit-transform: translateY(10px);
+        -moz-transform: translateY(10px);
+        -ms-transform: translateY(10px);
+        -o-transform: translateY(10px);
+        transform: translateY(10px);
+        -webkit-transition: all .25s ease-out;
+        -moz-transition: all .25s ease-out;
+        -ms-transition: all .25s ease-out;
+        -o-transition: all .25s ease-out;
+        transition: all .25s ease-out;
+        -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+        -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+        -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+        -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+        box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+      }
+
+      /* This bridges the gap so you can mouse into the tooltip without it disappearing */
+      .tool-wrapper .tooltip:before {
+        bottom: -20px;
+        content: " ";
+        display: block;
+        height: 20px;
+        left: 0;
+        position: absolute;
+        width: 100%;
+      }
+
+      /* CSS Triangles - https://codepen.io/mxttsco/pen/ALgYBX*/
+      .tool-wrapper .tooltip:after {
+        border-top: solid transparent 7px;
+        border-bottom: solid transparent 7px;
+        border-left: solid $red 7px;
+        right: -6px;
+        content: " ";
+        height: 0;
+        top: 22%;
+        margin-left: -13px;
+        position: absolute;
+        width: 0;
+      }
+
+      .tool-wrapper:hover .tooltip {
+        opacity: 1;
+        pointer-events: auto;
+        -webkit-transform: translateY(0px);
+          -moz-transform: translateY(0px);
+          -ms-transform: translateY(0px);
+           -o-transform: translateY(0px);
+            transform: translateY(0px);
+      }
+
+      /* IE can just show/hide with no transition */
+      .lte8 .tool-wrapper .tooltip {
+        display: none;
+      }
+
+      .lte8 .tool-wrapper:hover .tooltip {
+        display: block;
+      }
+
+      &:hover {
+        top: 0;
+        background: rgba(0,0,0, .6);
+      }
+
+      &:hover .tile-arrow-up {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.tile-row {
+  display: inline-block;
+}
+
+/*
+.key {
+  &-box {
+    max-width: 300px;
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+
+    span {
+      margin: 10px 5px;
+    }
+    label {
+      margin: 0px 10px 0px 0px;
+    }
+  }
+
+  &-pill {
+    display: flex;
+    align-items: center;
+    height: 22px;
+  }
+  
+  &-title {
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+
+  &-color {
+    min-width: 20px;
+    min-height: 20px;
+    border: 1px solid rgba(0, 0, 0, .2);
+  }
+}
+*/
+
+/* pills */
+.key {
+  &-box {
+    max-width: 300px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-left: 5px;
+
+    label {
+      margin: 0px 10px 0px 0px;
+      border: 1px solid rgba(0, 0, 0, .2);
+      padding: 0px 9px 0px 6px;
+      border-bottom-right-radius: 10px;
+      border-top-right-radius: 10px;
+      height: 22px;
+      border-left: 0px;
+    }
+  }
+
+  &-pill {
+    display: flex;
+    align-items: center;
+    height: 22px;
+
+    &:hover {
+      cursor: pointer;
+
+      .key-color, label {
+        cursor: pointer;
+        border-top: 1px solid rgba(0, 0, 0, .75);
+        border-bottom: 1px solid rgba(0, 0, 0, .75);
+      }
+      .key-color {
+        border-left: 1px solid rgba(0, 0, 0, .75);
+      }
+      label {
+        border-right: 1px solid rgba(0, 0, 0, .75);
+      }
+    }
+  }
+
+  &-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-right: 10px;
+  }
+
+  &-color {
+    min-width: 20px;
+    min-height: 22px;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    padding-left: 5px;
+    color: white;
+    text-shadow: 1px 0 0 rgba(0,0,0,0.2), -1px 0 0 rgba(0,0,0,0.2), 0 1px 0 rgba(0,0,0,0.2), 0 -1px 0 rgba(0,0,0,0.2), 1px 1px rgba(0,0,0,0.2), -1px -1px 0 rgba(0,0,0,0.2), 1px -1px 0 rgba(0,0,0,0.2), -1px 1px 0 rgba(0,0,0,0.2);
+  }
+}
+
+
+.filterTile {
+  width: 0px !important;
+  height: 0px !important;
+  padding: 0px !important;
+  margin: 0px !important;
+  opacity: 0 !important;
+}

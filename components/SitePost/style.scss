@@ -1,0 +1,160 @@
+@import '../../static/scss/colors';
+
+.blog-post {
+	margin-bottom: 30px;
+    background-color: #fff;
+    padding: 30px;
+    border: solid 1px rgba(160,160,160,.3);
+}
+.blog-post:last-child {
+	margin-bottom: 10px;
+}
+.blog-post h2 {
+	margin-top: 10px;
+	line-height: 30px;
+	margin-bottom: 20px;
+}
+.blog-post h2 a:hover {
+	border-bottom: 1px solid;
+}
+.blog-post p {
+	font-size: 16px;
+	line-height: 26px;
+	margin-bottom: 26px;
+}
+.blog-post time {
+	font-size: 14px;
+    color: $dark-blue;
+    font-weight: 500;
+    font-weight: 800;
+    margin-top: .5em;
+    text-transform: uppercase;
+}
+.blog-post .blog-read-time {
+	font-size: 14px;
+    color: $grey;
+    font-weight: 500;
+    margin-top: .5em;
+    text-transform: uppercase;
+}
+.blog-post time:after {
+    content: '   •';
+	color: $grey;
+    font-size: 16px;
+    margin-left: 7px;
+}
+.blog-post .blog-read-time:before {
+    content: '   •';
+	color: $grey;
+    font-size: 16px;
+    margin-right: 7px;
+}
+.blog-post .blog-category {
+/*	font-size: 14px;
+	color: $tan-hide;
+	font-weight: 500;
+	text-transform: uppercase;*/
+
+	color: $bondi-blue;
+	vertical-align: 0px;
+	font-size: 13px;
+	font-weight: 300;
+    font-family: Raleway,Helvetica,sans-serif;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    line-height: 2.5;
+    margin-top: -5px;
+}
+.blog-post .readmore {
+	font-size: 16px;
+	color: $deep-cerulean;
+}
+.blog-post .readmore:hover {
+	border-bottom: 1px solid;
+	cursor: pointer;
+}
+.blog-single {
+	max-width: 945px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.blog-single h1 {
+	text-align: center;
+	margin-top: 30px;
+}
+.blog-single .text {
+	line-height: 31px;
+	margin-bottom: 31px;
+}
+.blog-single h1, .blog-single .date-published, .blog-single .text *:not(div) {
+	max-width: 770px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.blog-single .text pre, .blog-single .text pre code {
+	max-width: 780px;
+}
+.blog-single .text img {
+	max-width: 100%;
+	height: auto;
+}
+.blog-single .footer {
+	max-width: 670px;
+	margin-left: auto;
+	margin-right: auto;
+	line-height: 31px;
+	margin-bottom: 31px;
+}
+.gohome {
+	position: fixed;
+	left: 20px;
+	font-size: 16px;
+	text-align: center;
+	padding: 8px 16px;
+	color: $dusty-grey;
+	background: $wild-sand;
+	font-weight: 400;
+	border-radius: 3px;
+}
+.gohome:focus {
+	color: $tundora;
+	background: $wild-sand;
+	border: 0;
+}
+.gohome:hover {
+	color: $tundora;
+	background: $wild-sand;
+	border: 0;
+}
+.blog-tag-line {
+	color: $dusty-grey;
+    font-style: italic;
+    font-weight: 100;
+}
+.blog-post-date {
+	font-size: 14px;
+    color: #2a00b3;
+    font-weight: 800;
+    margin-top: .5em;
+    text-transform: uppercase;
+}
+.blog-author {
+	color: $bondi-blue;
+}
+@media (max-width:900px) {
+	.blog-single h1 {
+		margin-top: 15px;
+	}
+	.blog-single .text, .blog-single .footer {
+		padding: 0 15px;
+		line-height: 26px;
+		margin-bottom: 26px;
+	}
+	.gohome {
+		position: static;
+		margin: 20px auto 0;
+		text-align: center;
+		width: 132px;
+		display: block;
+	}
+}
